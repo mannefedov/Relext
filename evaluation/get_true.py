@@ -104,12 +104,8 @@ if __name__ == '__main__':
     #     r.write(','.join(x) + '\n')
     a = time()
     with Pool(processes=25) as pool:
-        try:
-            for x in pool.map(get_true, r):
-                if x is not None:
-
-                    f.write(','.join(x) + '\n')
-        except Exception:
-            raise
+        for x in pool.map(get_true, r):
+            if x is not None:
+                f.write(','.join(x) + '\n')
     print('time taken ', time()-a)
     f.close()
